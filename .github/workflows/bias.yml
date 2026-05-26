@@ -1,0 +1,20 @@
+name: Pre-Open NQ Bias
+
+on:
+  schedule:
+    - cron: "23 13 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  post-bias:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests yfinance pandas numpy
+      - env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          FINNHUB_API_KEY:     ${{ secrets.FINNHUB_API_KEY }}
+        run: python pre_open_bias.py
