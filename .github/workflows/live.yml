@@ -1,0 +1,23 @@
+name: Live NQ Alert Loop
+
+on:
+  schedule:
+    - cron: "28 13 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  live-watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install requests yfinance pandas numpy
+      - name: Run live alert loop
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          URGENT_THRESHOLD: "5"
+        run: python live_loop.py
