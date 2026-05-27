@@ -336,7 +336,7 @@ try:
     best_case = best_objective + 3  # if zones line up: L5+L6+L7 / S5+S6+S7
 
     payload = {
-        "username": "NQ Desk",
+        "username": "NQ Desk · 15m/3m/1m time",
         "embeds": [{
             "title": f"{emoji} 9:25 PRE-OPEN BIAS — {label} — {today.strftime('%a %b %d')}",
             "description": (
@@ -371,7 +371,7 @@ try:
 
 except Exception as e:
     requests.post(WEBHOOK, json={
-        "username": "NQ Desk",
+        "username": "NQ Desk · 15m/3m/1m time",
         "embeds": [{
             "title": "⚠️ 9:25 Pre-Open Bias — data fetch failed",
             "description": f"Error: `{e}`\nFall back to manual chart read before 9:30 ET.",
