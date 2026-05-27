@@ -205,7 +205,7 @@ def post_snapshot(state, time_label):
     direction = "LONG" if L_met > S_met else "SHORT" if S_met > L_met else "NEUTRAL"
 
     payload = {
-        "username": "NQ Desk",
+        "username": "NQ Desk · 15m/3m/1m time",
         "embeds": [{
             "title": f"⏱ {time_label} ET Snapshot — NQ",
             "color": 3447003,
@@ -232,7 +232,7 @@ def post_urgent(state, side, score):
     direction = "LONG" if side == "L" else "SHORT"
     _, breakdown = score_side(state, side)
     payload = {
-        "username": "NQ Desk",
+        "username": "NQ Desk · 15m/3m/1m time",
         "content": "@here",
         "embeds": [{
             "title": f"🚨 {score}/6 EVALUABLE READY — NQ {direction}",
@@ -257,7 +257,7 @@ def post_urgent(state, side, score):
 
 def post_status(text, color=9807270):
     payload = {
-        "username": "NQ Desk",
+        "username": "NQ Desk · 15m/3m/1m time",
         "embeds": [{"description": text, "color": color}]
     }
     return _post(payload)
