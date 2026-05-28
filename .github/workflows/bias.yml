@@ -2,7 +2,7 @@ name: Pre-Open NQ Bias
 
 on:
   schedule:
-    - cron: "23 13 * * 1-5"
+    - cron: "17 13 * * 1-5"
   workflow_dispatch:
 
 jobs:
